@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font Face Declarations ─── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── IGM Homeopathic Medical College Design Tokens ─── */
+/* Color Direction: Deep Forest Green (primary) + Warm Ivory (background) + Gold accent */
+/* Vibe: Dignified, trustworthy, rooted in nature, prestigious academic */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Backgrounds */
+    --background: 0.98 0.008 95;          /* warm ivory */
+    --foreground: 0.18 0.03 145;           /* deep forest text */
+
+    /* Cards */
+    --card: 0.995 0.004 95;               /* near-white warm card */
+    --card-foreground: 0.18 0.03 145;
+
+    /* Popover */
+    --popover: 0.995 0.004 95;
+    --popover-foreground: 0.18 0.03 145;
+
+    /* Primary – deep emerald green */
+    --primary: 0.38 0.105 148;
+    --primary-foreground: 0.98 0.004 95;
+
+    /* Secondary – light sage green */
+    --secondary: 0.93 0.028 148;
+    --secondary-foreground: 0.28 0.08 148;
+
+    /* Muted */
+    --muted: 0.94 0.018 100;
+    --muted-foreground: 0.48 0.04 148;
+
+    /* Accent – warm gold */
+    --accent: 0.78 0.12 82;
+    --accent-foreground: 0.18 0.04 60;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders & Inputs */
+    --border: 0.86 0.028 148;
+    --input: 0.88 0.028 148;
+    --ring: 0.38 0.105 148;
+
+    /* Charts */
+    --chart-1: 0.46 0.12 148;
+    --chart-2: 0.58 0.14 148;
+    --chart-3: 0.78 0.12 82;
+    --chart-4: 0.65 0.10 165;
+    --chart-5: 0.72 0.08 148;
+
+    /* Sidebar */
+    --sidebar: 0.22 0.06 148;
+    --sidebar-foreground: 0.96 0.012 95;
+    --sidebar-primary: 0.78 0.12 82;
+    --sidebar-primary-foreground: 0.18 0.04 60;
+    --sidebar-accent: 0.30 0.08 148;
+    --sidebar-accent-foreground: 0.96 0.012 95;
+    --sidebar-border: 0.30 0.06 148;
+    --sidebar-ring: 0.78 0.12 82;
+
+    /* Custom tokens */
+    --hero-overlay: oklch(0.14 0.06 148 / 0.72);
+    --section-green: oklch(0.94 0.025 148);
+    --gold: oklch(0.78 0.12 82);
+    --deep-green: oklch(0.28 0.085 148);
+    --emerald: oklch(0.44 0.13 148);
+    --text-on-green: oklch(0.98 0.004 95);
+  }
+
+  .dark {
+    --background: 0.15 0.04 148;
+    --foreground: 0.96 0.012 95;
+    --card: 0.20 0.05 148;
+    --card-foreground: 0.96 0.012 95;
+    --popover: 0.24 0.05 148;
+    --popover-foreground: 0.96 0.012 95;
+    --primary: 0.6 0.14 148;
+    --primary-foreground: 0.14 0.04 148;
+    --secondary: 0.26 0.06 148;
+    --secondary-foreground: 0.94 0.012 95;
+    --muted: 0.25 0.05 148;
+    --muted-foreground: 0.65 0.05 148;
+    --accent: 0.78 0.12 82;
+    --accent-foreground: 0.14 0.04 60;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.06 148;
+    --input: 0.26 0.06 148;
+    --ring: 0.6 0.14 148;
+    --sidebar: 0.18 0.05 148;
+    --sidebar-foreground: 0.96 0.012 95;
+    --sidebar-primary: 0.78 0.12 82;
+    --sidebar-primary-foreground: 0.14 0.04 60;
+    --sidebar-accent: 0.26 0.06 148;
+    --sidebar-accent-foreground: 0.96 0.012 95;
+    --sidebar-border: 0.26 0.06 148;
+    --sidebar-ring: 0.78 0.12 82;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Sora", sans-serif;
+  }
+}
+
+/* ─── Section Utilities ─── */
+@layer utilities {
+  .section-green-bg {
+    background-color: var(--section-green);
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-deep-green {
+    background-color: var(--deep-green);
+  }
+
+  .bg-emerald {
+    background-color: var(--emerald);
+  }
+
+  .hero-overlay {
+    background: var(--hero-overlay);
+  }
+
+  .font-display {
+    font-family: "Fraunces", serif;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200 hover:text-primary;
+  }
+
+  .section-title {
+    font-family: "Fraunces", serif;
+    @apply text-3xl md:text-4xl font-semibold text-primary;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg max-w-2xl;
+  }
+
+  /* Grain texture overlay */
+  .grain-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+}
